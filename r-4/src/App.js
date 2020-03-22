@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route path="/user" component={UserPage} />
           <Route path="/children" children={() => <div>children</div>} />
-          {/* <Route path="/search/:id" component={SearchComponent} /> */}
+          <Route path="/search/:id" component={SearchComponent} />
           {/* <Route path="/search/:id" children={<SearchComponent />} /> */}
 
           <Route path="/render" render={() => <div>render</div>} />
