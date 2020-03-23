@@ -13,7 +13,8 @@ const TopBar: React.FC<IProps> = () => {
     <div className="topBar">
       <span
         onClick={() => history.go(-1)}
-        className="iconfont icon-jiantou-copy" />
+        className="iconfont icon-jiantou-copy"
+      />
       <div className="menu-item">--</div>
     </div>
   );

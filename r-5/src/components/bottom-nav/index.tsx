@@ -16,9 +16,9 @@ const menu: MenuProps[] = [
     icon: 'fenlei',
   },
   {
-    key: 'olist',
+    key: 'orderlist',
     title: '订单列表',
-    link: '/olist',
+    link: '/orderlist',
     icon: 'icon-',
   },
   {
