@@ -61,3 +61,6 @@ client/utils/debug.ts
 scripts/
 
 client/api
+
+config
+src/service-worker.ts

@@ -8,6 +8,7 @@ export interface MenuProps {
   [key: string]: string;
 }
 
+// eslint-disable-next-line react/prop-types
 const MenuItem: React.FC<MenuProps> = ({ icon, link, title }) => {
 
   return (

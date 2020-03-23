@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { RouteProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { H } from 'history';
-import BasicLayout from '../../layout/BasicLayout';
+import BasicLayout from '../../layout/basic-layout';
 import { RootStateMap } from '../../store';
 import { UserInfo, UserState, Action } from '../../store/user-reducer';
 // import { loginAction } from '../../action/login';
@@ -59,19 +59,17 @@ export default connect(
     }
 
     render() {
-      const { login, user, location } = this.props;
-      const { isLogin, loading, err, tip } = user;
+      const { user } = this.props;
+      // const {login, user, location } = this.props;
+      const { loading } = user;
+      // const { isLogin, loading, err, tip } = user;
       // if (isLogin) {
       //   const { redirect = '/' } = (location as History).state || {};
       //   return <Redirect to={redirect} />;
       // }
       const { name } = this.state;
       return (
-        <BasicLayout
-          title="登录"
-          className="loginPage"
-          shortIcon="https://gw.alicdn.com/tfs/TB1OIxTcLc3T1VjSZLeXXbZsVXa-183-144.png?getAvatar=1"
-        >
+        <BasicLayout title="登录" className="loginPage">
           <h3>LoginPage</h3>
           <input
             type="text"

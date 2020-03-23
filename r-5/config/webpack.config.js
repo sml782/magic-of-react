@@ -180,12 +180,12 @@ module.exports = function(webpackEnv) {
       publicPath: paths.publicUrlOrPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
-        ? info =>
+        ? (info) =>
             path
               .relative(paths.appSrc, info.absoluteResourcePath)
               .replace(/\\/g, '/')
         : isEnvDevelopment &&
-          (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+          ((info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
       // Prevents conflicts when multiple webpack runtimes (from different apps)
       // are used on the same page.
       jsonpFunction: `webpackJsonp${appPackageJson.name}`,
@@ -268,7 +268,7 @@ module.exports = function(webpackEnv) {
       // https://twitter.com/wSokra/status/969679223278505985
       // https://github.com/facebook/create-react-app/issues/5358
       runtimeChunk: {
-        name: entrypoint => `runtime-${entrypoint.name}`,
+        name: (entrypoint) => `runtime-${entrypoint.name}`,
       },
     },
     resolve: {
@@ -286,8 +286,8 @@ module.exports = function(webpackEnv) {
       // `web` extension prefixes have been added for better support
       // for React Native Web.
       extensions: paths.moduleFileExtensions
-        .map(ext => `.${ext}`)
-        .filter(ext => useTypeScript || !ext.includes('ts')),
+        .map((ext) => `.${ext}`)
+        .filter((ext) => useTypeScript || !ext.includes('ts')),
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -336,7 +336,7 @@ module.exports = function(webpackEnv) {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
                 resolvePluginsRelativeTo: __dirname,
-                
+
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -369,7 +369,7 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -411,7 +411,7 @@ module.exports = function(webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-                
+
                 // Babel sourcemaps are needed for debugging into node_modules
                 // code.  Without the options below, debuggers like VSCode
                 // show incorrect code and set breakpoints on the wrong lines.
@@ -589,7 +589,7 @@ module.exports = function(webpackEnv) {
             return manifest;
           }, seed);
           const entrypointFiles = entrypoints.main.filter(
-            fileName => !fileName.endsWith('.map')
+            (fileName) => !fileName.endsWith('.map')
           );
 
           return {
@@ -611,7 +611,7 @@ module.exports = function(webpackEnv) {
           clientsClaim: true,
           exclude: [/\.map$/, /asset-manifest\.json$/],
           importWorkboxFrom: 'cdn',
-          navigateFallback: paths.publicUrlOrPath + 'index.html',
+          navigateFallback: `${paths.publicUrlOrPath  }index.html`,
           navigateFallbackBlacklist: [
             // Exclude URLs starting with /_, as they're likely an API call
             new RegExp('^/_'),
@@ -643,7 +643,7 @@ module.exports = function(webpackEnv) {
             '!**/__tests__/**',
             '!**/?(*.)(spec|test).*',
             '!**/src/setupProxy.*',
-            '!**/src/setupTests.*',
+            '!**/src/setup-tests.*',
           ],
           silent: true,
           // The formatter is invoked directly in WebpackDevServerUtils during development

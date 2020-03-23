@@ -1,5 +1,5 @@
 import React from 'react';
-import BasicLayout from '../../layout/BasicLayout';
+import BasicLayout from '../../layout/basic-layout';
 
 const HomePage: React.FC = () => {
   return (

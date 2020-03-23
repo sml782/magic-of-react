@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { RouteProps } from 'react-router-dom';
-// import TopBar from '../../components/TopBar';
-// import BottomNav from '../../components/BottomNav';
+// import TopBar from '../../components/top-bar';
+// import BottomNav from '../../components/bottom-nav';
 import './index.scss';
 
 interface Iprops extends RouteProps {
@@ -16,12 +16,13 @@ export default class BasicLayout extends Component<Iprops> {
     document.title = title;
   }
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
-  }
-
   render() {
-    const { children, title, path, component } = this.props;
+    const {
+      children,
+      // title,
+      // path,
+      // component,
+    } = this.props;
     // return (
     //   <>
     //     <Route component={BottomNav} />

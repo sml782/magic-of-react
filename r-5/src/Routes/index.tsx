@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
-import UserPage from '../pages/UserPage';
-import TopBar from '../components/TopBar';
-import BottomNav from '../components/BottomNav';
-// import BasicLayout from '../layout/BasicLayout';
-// import PrivateRoute from './PrivateRoute';
+import HomePage from '../pages/home-page';
+import LoginPage from '../pages/login-page';
+import UserPage from '../pages/user-page';
+import TopBar from '../components/top-bar';
+import BottomNav from '../components/bottom-nav';
+// import BasicLayout from '../layout/basic-layout';
+// import PrivateRoute from './private-route';
 
-const bottomNav = {};
+// const bottomNav = {};
 
 const routes: RouteProps[] = [
   {

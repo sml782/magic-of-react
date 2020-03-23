@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { RouteProps } from 'react-router-dom';
 import {connect} from 'react-redux';
-import BasicLayout from '../../layout/BasicLayout';
+import BasicLayout from '../../layout/basic-layout';
 import { RootStateMap } from '../../store';
 import { UserState, UserInfo } from '../../store/user-reducer';
 
@@ -18,10 +18,7 @@ export default connect(
       const { user } = this.props;
       const userInfo = user.userInfo as UserInfo;
       return (
-        <BasicLayout
-          title="用户中心"
-          shortIcon="https://gw.alicdn.com/tfs/TB1OIxTcLc3T1VjSZLeXXbZsVXa-183-144.png?getAvatar=1"
-        >
+        <BasicLayout title="用户中心">
           <h3>UserPage</h3>
           <p>id: {userInfo.id}</p>
           <p>姓名：{userInfo.name}</p>

@@ -29,11 +29,7 @@ const menu: MenuProps[] = [
   },
 ];
 
-export default class BottomNav extends Component {
-  componentWillUnmount() {
-    console.log('BottomNav-componentWillUnmount'); // sy-log
-  }
-
+export default class BottomNav extends Component<{}, {}> {
   render() {
     return (
       <ul className="bottomNav">

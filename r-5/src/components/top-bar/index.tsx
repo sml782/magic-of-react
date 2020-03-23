@@ -6,7 +6,7 @@ interface IProps extends RouteProps {
 
 }
 
-const TopBar: React.FC<IProps> = (props) => {
+const TopBar: React.FC<IProps> = () => {
   const history = useHistory();
   // console.log('routes', props); // sy-log
   return (
