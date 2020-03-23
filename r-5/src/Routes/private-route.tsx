@@ -1,10 +1,8 @@
-import React, { FC } from "react";
-import { Redirect, Route } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { FC } from 'react';
+import { Redirect, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { RootStateMap } from '../store';
-import { UserState } from '../store/userReducer';
-
-
+import { UserState } from '../store/user-reducer';
 
 const PrivateRoute: FC<UserState> = ({ children, isLogin, ...rest}) => {
   return (
@@ -16,20 +14,20 @@ const PrivateRoute: FC<UserState> = ({ children, isLogin, ...rest}) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: '/login',
               state: {
-                redirect: location.pathname
-              }
+                redirect: location.pathname,
+              },
             }}
           />
         )
       }
     />
   );
-}
+};
 
 export default connect(
   ({ user }: RootStateMap) => ({
-    isLogin: user.isLogin
+    isLogin: user.isLogin,
   })
 )(PrivateRoute);

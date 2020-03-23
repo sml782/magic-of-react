@@ -1,4 +1,4 @@
-import { UserInfo, Tip } from '../store/userReducer';
+import { UserInfo, Tip } from '../store/user-reducer';
 
 interface LoginServer {
   login(userInfo: UserInfo): Promise<UserInfo | Tip>;
@@ -29,6 +29,6 @@ const LoginService: LoginServer = {
         }
       }, 1000);
     });
-  }
+  },
 };
 export default LoginService;

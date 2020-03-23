@@ -1,8 +1,8 @@
-import { createStore, combineReducers, applyMiddleware, ReducersMapObject, Reducer } from 'redux';
-import thunk from "redux-thunk";
-import userReducer, { UserReducer, UserState } from "./userReducer";
-import createSagaMiddleware from "redux-saga";
-import loginSaga from "../action/loginSaga";
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+// import thunk from 'redux-thunk';
+import userReducer, { UserReducer, UserState } from './user-reducer';
+import createSagaMiddleware from 'redux-saga';
+import loginSaga from '../action/loginSaga';
 
 export interface ReducerMap {
   user: UserReducer;

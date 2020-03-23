@@ -1,4 +1,4 @@
-import { UserInfo, UserState } from '../store/userReducer';
+import { UserInfo, UserState } from '../store/user-reducer';
 
 interface LogoutServer {
   logout(userInfo: UserInfo): Promise<UserState>;
@@ -16,7 +16,7 @@ const LogoutService: LogoutServer = {
         }
       }, 1000);
     });
-  }
+  },
 };
 
 export default LogoutService;
