@@ -18,6 +18,7 @@ export default class BasicLayout extends Component<Iprops> {
 
   render() {
     const {
+      className,
       children,
       // title,
       // path,
@@ -30,7 +31,7 @@ export default class BasicLayout extends Component<Iprops> {
     //   </>
     // );
     return (
-      <div className={classnames('basicLayout')}>
+      <div className={classnames('basicLayout', className)}>
         {/* <TopBar title={title} /> */}
         <article>{children}</article>
         {/* <BottomNav /> */}

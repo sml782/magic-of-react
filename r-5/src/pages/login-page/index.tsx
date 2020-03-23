@@ -25,12 +25,12 @@ interface MapDTOProps {
 export default connect(
   ({ user }: RootStateMap) => ({ user }),
   {
-    login: (userInfo: UserInfo) => ({ type: 'loginSaga', payload: userInfo }),
+    // login: (userInfo: UserInfo) => ({ type: 'loginSaga', payload: userInfo }),
 
-    // login: userInfo => ({type: "LOGIN_SUCCESS", payload: userInfo})
+    login: (userInfo: UserInfo) => ({ type: 'LOGIN_SUCCESS', payload: userInfo }),
     // login: userInfo => dispatch => {
     // loginAction(dispatch, userInfo);
-    // dispatch({type: "LOGIN_REQUEST"}); //展示loading
+    // dispatch({ type: 'LOGIN_REQUEST' }); //展示loading
     // 去login请求
     // setTimeout(() => {
     //   dispatch({type: "LOGIN_SUCCESS", payload: userInfo});
@@ -49,13 +49,15 @@ export default connect(
     }
 
     handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
-      this.setState({name: event.target.value});
+      this.setState({ name: event.target.value });
     }
 
     handleLogin = () => {
+      const { history } = this.props;
       const { name } = this.state;
       const { login } = this.props;
       login({ id: 1, name });
+      history.push('/');
     }
 
     render() {
@@ -77,7 +79,7 @@ export default connect(
             onChange={this.handleChangeName}
           />
           {/* <p className="red">{err.msg}</p> */}
-          <button onClick={this.handleLogin}>
+          <button className="login-btn" onClick={this.handleLogin}>
             {loading ? '登录中...' : '登录'}
           </button>
           {/* <p className="green">{tip.msg}</p> */}

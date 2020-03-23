@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import MenuItem, { MenuProps } from './menu-item';
 import './index.scss';
 

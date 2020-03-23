@@ -50,7 +50,7 @@ const userReducer: UserReducer = (state = {...initalUserInfo}, action) => {
       return {
         isLogin: true,
         loading: false,
-        // userInfo: action.payload
+        userInfo: action.payload as UserInfo,
       };
     case 'LOGIN_FAILURE':
       return {
