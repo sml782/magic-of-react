@@ -64,3 +64,5 @@ client/api
 
 config/
 src/service-worker.ts
+
+server/

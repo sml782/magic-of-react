@@ -62,5 +62,7 @@ scripts/
 
 client/api
 
-config
+config/
 src/service-worker.ts
+
+server/
