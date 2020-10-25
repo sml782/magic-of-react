@@ -6,6 +6,7 @@ import UserPage from '../pages/user-page';
 import CartPage from '../pages/cart-page';
 import OrderPage from '../pages/order-page';
 import UsePage from '../pages/use-page';
+import SWRPage from '../pages/swr-page';
 import TopBar from '../components/top-bar';
 import BottomNav from '../components/bottom-nav';
 // import PrivateRoute from './private-route';
@@ -38,6 +39,10 @@ const routes: RouteProps[] = [
     path: '/use',
     component: UsePage,
   },
+  {
+    path: '/swr-test',
+    component: SWRPage,
+  },
 ];
 
 // todo 实现topBar的顶部title显示，注意优化，不要重复渲染
@@ -47,7 +52,7 @@ const Routes: React.FC = () => {
       {/* 能获取到history location match吗，来自context */}
       {/* <BottomNav /> */}
       <Route routes={routes} component={TopBar} />
-      <Route component={BottomNav} />
+      {/* <Route component={BottomNav} /> */}
       <Switch>
         {routes.map((item) => {
           return (
