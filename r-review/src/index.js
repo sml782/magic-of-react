@@ -4,6 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const ele = (
+  <h1
+    className="ele"
+    id="ele"
+    style={{ color: 'red' }}
+  >
+    <span>666</span>
+    我的天那
+  </h1>
+);
+
+console.log(ele);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
