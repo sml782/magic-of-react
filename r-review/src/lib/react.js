@@ -10,3 +10,4 @@ export function createElement(type, config, children = null) {
     props,
   }
 }
+
