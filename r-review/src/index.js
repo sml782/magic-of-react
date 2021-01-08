@@ -1,7 +1,9 @@
 import React from './lib/react';
 import ReactDOM from './lib/react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 const ele = (
@@ -12,6 +14,7 @@ const ele = (
   >
     <span>666</span>
     我的天那
+    <App />
   </h1>
 );
 

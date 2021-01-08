@@ -16,13 +16,19 @@ function createDom(vdom) {
   }
 
   const { type, props } = vdom;
+
+  if (typeof type === 'function') {
+    const FunctionComponent = vdom.type;
+    const fdom = FunctionComponent(props);
+    return createDom(fdom);
+  }
+
   const dom = document.createElement(type);
   if (typeof props === 'object' && props !== null) {
     for (const key in props) {
       if (key === 'style') {
         for (const skey in props.style) {
           dom.style[skey] = props.style[skey];
-          console.log(dom.style.color, props.style[skey])
         }
         continue;
       }
