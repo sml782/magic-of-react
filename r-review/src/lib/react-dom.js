@@ -1,4 +1,8 @@
 
+function isReactComponent(type) {
+  return !!type.prototype.isReactComponent;
+}
+
 function mountChild(children, dom) {
   if (Array.isArray(children)) {
     children.forEach(child => {
@@ -18,9 +22,15 @@ function createDom(vdom) {
   const { type, props } = vdom;
 
   if (typeof type === 'function') {
-    const FunctionComponent = vdom.type;
-    const fdom = FunctionComponent(props);
-    return createDom(fdom);
+    if (!isReactComponent(type)) {
+      const FunctionComponent = type;
+      const fdom = FunctionComponent(props);
+      return createDom(fdom);
+    }
+
+    const ClassComponent = type;
+    const cdom = new ClassComponent(props).render();
+    return createDom(cdom);
   }
 
   const dom = document.createElement(type);

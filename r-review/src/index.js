@@ -3,7 +3,8 @@ import ReactDOM from './lib/react-dom';
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import FunctionComponent from './components/FunctionComponent';
+import ClassComponent from './components/ClassComponent';
 // import reportWebVitals from './reportWebVitals';
 
 const ele = (
@@ -14,11 +15,13 @@ const ele = (
   >
     <span>666</span>
     我的天那
-    <App />
+    <FunctionComponent />
+    <ClassComponent />
   </h1>
 );
 
-console.log(ele);
+console.log(ele, ele.props.children[3].type.prototype.isReactComponent);
+// 'isReactComponent';
 
 ReactDOM.render((
   ele
