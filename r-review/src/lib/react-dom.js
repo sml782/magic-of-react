@@ -26,9 +26,7 @@ function createDom(vdom) {
       return mountFunctionComponent(vdom);
     }
 
-    const ClassComponent = type;
-    const cdom = new ClassComponent(props).render();
-    return createDom(cdom);
+    return mountClassComponent(vdom);
   }
 
   const dom = document.createElement(type);
@@ -56,6 +54,16 @@ function mountFunctionComponent(vdom) {
   const { type: FunctionComponent, props } = vdom;
   const fdom = FunctionComponent(props);
   return createDom(fdom);
+}
+
+function mountClassComponent(vdom) {
+  const { type: ClassComponent, props } = vdom;
+  const classInstance = new ClassComponent(props);
+  // vdom.classInstance = classInstance;
+
+  const oldRenderDom = classInstance.render.call(classInstance);
+  // classInstance.oldRenderDom = vdom.oldRenderDom = oldRenderDom;
+  return createDom(oldRenderDom);
 }
 
 function render(vdom, container) {
