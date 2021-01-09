@@ -23,9 +23,7 @@ function createDom(vdom) {
 
   if (typeof type === 'function') {
     if (!isReactComponent(type)) {
-      const FunctionComponent = type;
-      const fdom = FunctionComponent(props);
-      return createDom(fdom);
+      return mountFunctionComponent(vdom);
     }
 
     const ClassComponent = type;
@@ -52,6 +50,12 @@ function createDom(vdom) {
     mountChild(props.children, dom);
   }
   return dom;
+}
+
+function mountFunctionComponent(vdom) {
+  const { type: FunctionComponent, props } = vdom;
+  const fdom = FunctionComponent(props);
+  return createDom(fdom);
 }
 
 function render(vdom, container) {
