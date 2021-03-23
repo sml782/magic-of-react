@@ -16,4 +16,8 @@ const nextState = produce(baseState, draftState => {
   draftState[1].done = true;
 });
 
-console.log(baseState, nextState);
+const nextnextState = produce(baseState => {
+  baseState[0].todo = '1';
+});
+
+console.log(baseState, nextState, nextnextState);
