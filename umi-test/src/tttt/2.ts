@@ -16,8 +16,10 @@ const nextState = produce(baseState, draftState => {
   draftState[1].done = true;
 });
 
-const nextnextState = produce(baseState => {
+const nextStateCallback = produce(baseState => {
   baseState[0].todo = '1';
 });
+
+const nextnextState = nextStateCallback(baseState);
 
 console.log(baseState, nextState, nextnextState);
