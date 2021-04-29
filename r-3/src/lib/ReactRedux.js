@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-// import {bindActionCreators} from "redux";
+import React, { Component } from "react";
+import { bindActionCreators } from "./Redux";
 
 const ValueContext = React.createContext();
 
@@ -10,6 +10,7 @@ export const connect = (
   return class extends Component {
     // 此时组件的所有生命周期都能获得this.context
     static contextType = ValueContext;
+
     constructor(props) {
       super(props);
       this.state = {
@@ -17,7 +18,8 @@ export const connect = (
       };
     }
     componentDidMount() {
-      const {subscribe} = this.context;
+      const { subscribe } = this.context;
+      console.log(this)
       this.update();
       // 订阅
       subscribe(() => {
@@ -26,7 +28,7 @@ export const connect = (
     }
 
     update = () => {
-      const {getState, dispatch, subscribe} = this.context;
+      const { getState, dispatch } = this.context;
       //  getState获取当前store的state
       let stateProps = mapStateToProps(getState());
       let dispatchProps;
@@ -37,7 +39,7 @@ export const connect = (
         dispatchProps = mapDispatchToProps(dispatch, this.props);
       } else {
         // 默认
-        dispatchProps = {dispatch};
+        dispatchProps = { dispatch };
       }
       this.setState({
         props: {
@@ -55,25 +57,11 @@ export const connect = (
 
 export class Provider extends Component {
   render() {
+    const { store } = this.props;
     return (
-      <ValueContext.Provider value={this.props.store}>
+      <ValueContext.Provider value={store}>
         {this.props.children}
       </ValueContext.Provider>
     );
   }
-}
-
-function bindActionCreator(creator, dispatch) {
-  return (...args) => dispatch(creator(...args));
-}
-
-// {
-//     add: () => ({type: "ADD"})
-//   }
-export function bindActionCreators(creators, dispatch) {
-  const obj = {};
-  for (const key in creators) {
-    obj[key] = bindActionCreator(creators[key], dispatch);
-  }
-  return obj;
 }

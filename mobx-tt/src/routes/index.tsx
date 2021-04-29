@@ -41,7 +41,7 @@ const Routes: React.FC = () => {
     <Router>
       {/* 能获取到history location match吗，来自context */}
       {/* <BottomNav /> */}
-      <Route routes={routes} component={TopBar} />
+      <Route path="*" component={TopBar} />
       <Route component={BottomNav} />
       <Switch>
         {routes.map((item) => {

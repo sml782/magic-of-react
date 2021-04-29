@@ -61,3 +61,18 @@ function compose(...funcs) {
   }
   return funcs.reduce((a, b) => (...args) => a(b(...args)));
 }
+
+function bindActionCreator(creator, dispatch) {
+  return (...args) => dispatch(creator(...args));
+}
+
+// {
+//     add: () => ({type: "ADD"})
+//   }
+export function bindActionCreators(creators, dispatch) {
+  const obj = {};
+  for (const key in creators) {
+    obj[key] = bindActionCreator(creators[key], dispatch);
+  }
+  return obj;
+}

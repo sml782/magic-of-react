@@ -1,19 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import ReactReduxPage from "./pages/ReactReduxPage";
-import RouterPage from "./pages/RouterPage";
-import RouteChildren from "./pages/RouteChildren";
-import RouteComponePage from "./pages/RouteComponePage";
+// import RouterPage from "./pages/RouterPage";
+// import RouteChildren from "./pages/RouteChildren";
+// import RouteComponePage from "./pages/RouteComponePage";
+import { Provider } from './lib/ReactRedux';
+import store from './store';
 
 function App() {
-  // const [num, setNum] = useState(0);
   return (
     <div className="App">
-      {/* <button onClick={() => setNum(num + 1)}>change num {num}</button> */}
-      {/* react redux 学习 */}
-      {/* <ReactReduxPage num={num} /> */}
+      <Provider store={store}>
+        {/* <button onClick={() => setNum(num + 1)}>change num {num}</button> */}
+        {/* react redux 学习 */}
+        <ReactReduxPage />
+      </Provider>
 
       {/* router 学习 */}
-      <RouterPage />
+      {/* <RouterPage /> */}
 
       {/* route children  */}
       {/* <RouteChildren /> */}
