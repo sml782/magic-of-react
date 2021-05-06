@@ -5,7 +5,8 @@ const ValueContext = React.createContext();
 
 export const connect = (
   mapStateToProps = state => state,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps,
 ) => WrappedComponent => {
   return class extends Component {
     // 此时组件的所有生命周期都能获得this.context
@@ -41,12 +42,15 @@ export const connect = (
         // 默认
         dispatchProps = { dispatch };
       }
-      this.setState({
-        props: {
-          ...stateProps,
-          ...dispatchProps,
-        }
-      });
+      let newProps = {
+        ...stateProps,
+        ...dispatchProps,
+        ...this.props,
+      }
+      if (typeof mergeProps === 'function') {
+        newProps = mergeProps(stateProps, dispatchProps, this.props);
+      }
+      this.setState({ props: newProps });
     };
     render() {
       console.log("this.context", this.context); //sy-log
@@ -54,7 +58,7 @@ export const connect = (
       return (
         <WrappedComponent
           {...this.state.props}
-          {...this.props}
+          // {...this.props}
         />
       );
     }
