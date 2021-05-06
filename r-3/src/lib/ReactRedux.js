@@ -19,7 +19,7 @@ export const connect = (
     }
     componentDidMount() {
       const { subscribe } = this.context;
-      console.log(this)
+      // console.log(this)
       this.update();
       // 订阅
       subscribe(() => {
@@ -44,13 +44,19 @@ export const connect = (
       this.setState({
         props: {
           ...stateProps,
-          ...dispatchProps
+          ...dispatchProps,
         }
       });
     };
     render() {
       console.log("this.context", this.context); //sy-log
-      return <WrappedComponent {...this.state.props} />;
+      console.log('this.state', this.state);
+      return (
+        <WrappedComponent
+          {...this.state.props}
+          {...this.props}
+        />
+      );
     }
   };
 };

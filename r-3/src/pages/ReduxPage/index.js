@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 // import {connect} from "react-redux";
-import { connect } from "../lib/ReactRedux";
+import { connect } from "../../lib/ReactRedux";
 
-import { bindActionCreators } from "../lib/Redux";
+import { bindActionCreators } from "../../lib/Redux";
 
 // connect 链接store与组件 其实这里返回的是一个新的组件  hoc
 export default connect(

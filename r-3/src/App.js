@@ -1,5 +1,5 @@
 import React from "react";
-import ReactReduxPage from "./pages/ReactReduxPage";
+import ReactReduxPage from "./pages/ReduxPage";
 // import RouterPage from "./pages/RouterPage";
 // import RouteChildren from "./pages/RouteChildren";
 // import RouteComponePage from "./pages/RouteComponePage";
@@ -12,7 +12,7 @@ function App() {
       <Provider store={store}>
         {/* <button onClick={() => setNum(num + 1)}>change num {num}</button> */}
         {/* react redux 学习 */}
-        <ReactReduxPage />
+        <ReactReduxPage number={6} />
       </Provider>
 
       {/* router 学习 */}
