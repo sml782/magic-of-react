@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import {connect} from "react-redux";
-import { connect } from "../../lib/ReactRedux";
+// import { connect } from "../../lib/ReactRedux";
+import { connect } from "../../lib/awesome/react-redux";
 
 import { bindActionCreators } from "../../lib/Redux";
 

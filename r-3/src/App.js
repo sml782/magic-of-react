@@ -3,7 +3,8 @@ import ReactReduxPage from "./pages/ReduxPage";
 // import RouterPage from "./pages/RouterPage";
 // import RouteChildren from "./pages/RouteChildren";
 // import RouteComponePage from "./pages/RouteComponePage";
-import { Provider } from './lib/ReactRedux';
+// import { Provider } from './lib/ReactRedux';
+import { Provider } from './lib/awesome/react-redux';
 import store from './store';
 
 function App() {
