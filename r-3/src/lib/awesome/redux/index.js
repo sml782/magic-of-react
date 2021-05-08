@@ -1,6 +1,15 @@
 
-export function createStore() {
+export function createStore(reducer, enhancer) {
+  let currentState = void 0;
+  let listener = [];
 
+  function getState() {
+    return currentState;
+  }
+
+  function dispatch() {
+
+  }
 }
 
 export function applyMiddleware() {

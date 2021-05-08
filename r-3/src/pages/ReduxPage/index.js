@@ -29,7 +29,7 @@ export default connect(
   // ! ownProps谨慎使用，如果ownProps发生变化的话，mapDispatchToProps会被重新执行，
   // ! 这个时候影响性能
   (dispatch, ownProps) => {
-    console.log("ownProps", ownProps); //sy-log
+    // console.log("ownProps", ownProps); //sy-log
     let res = {
       add: () => ({type: "ADD"}),
       minus: () => ({type: "MINUS"})
