@@ -11,11 +11,11 @@ const connect = (
     return class Connect extends React.Component {
 
       static displayName = (() => {
-        const originalDisplayName = OriginalComponent.displayName;
+        const originalDisplayName = OriginalComponent.displayName || OriginalComponent.name;
         if (!originalDisplayName) {
           return 'Connect';
         }
-        return `Connect(${OriginalComponent.displayName})`;
+        return `Connect(${originalDisplayName})`;
       })();
 
       static contextType = ValueContext;
