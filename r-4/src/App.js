@@ -59,11 +59,11 @@ function DetailComonent(props) {
 
 function SearchComponent(props) {
   console.log("use", useParams(), useLocation(), useHistory()); //sy-log
-  const {id} = useParams(); //props.match.params;
+  const { id } = useParams(); //props.match.params;
   return (
     <div>
       <div>SearchComponent-{id}</div>
-      <Link to="/search/123/detail">详情</Link>
+      <Link to={`/search/${id}/detail`}>详情</Link>
       <Route path="/search/:id/detail" component={DetailComonent} />
     </div>
   );
